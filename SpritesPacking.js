@@ -74,12 +74,13 @@ SpritesPacking.prototype.generate_image = function (tiles, pathFolder) {
 };
 
 SpritesPacking.prototype.generate_data = function (tiles, pathFolder) {
-    var data = "#id:width,height,offset_x,offset_y,size_x, size_y";
+    var data = "#id:width,height,offset_x,offset_y,pos_x,pos_y,size_x,size_y";
     for (var i=0; i<tiles.length; i++) {
         var tile = tiles[i];
         data += "\n"+tile.id+":" +
             tile.image.width+","+tile.image.height +","+
             tile.offset_x+","+tile.offset_y+"," +
+            tile.pos_x+","+tile.pos_y+"," +
             tile.size_x+","+tile.size_y;
     }
     fs.writeFile(pathFolder + "/SpritesPacking.data", data);
